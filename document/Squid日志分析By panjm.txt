@@ -1,0 +1,90 @@
+
+
+
+Squid日志分析
+------------------------------------------------------------------------------------------------------
+
+日志格式：
+%{%Y-%m-%dT%H:%M:%S}tl.%03tu %6tr %Ss/%03Hs %<st %rm %ru %un %Sh/%<A %mt %>a %{X-Forwarded-For}>h
+
+------------------------------------------------------------------------------------------------------
+
+各个格式对应含义
+%{format}tl		日期 含时分秒      
+Date of request, strftime format (localtime)
+
+%tu			毫秒
+Date of request, sub-second component
+
+%tr		响应时间
+Time to serve the request, in milliseconds
+
+%Ss		Squid状态码
+Squid status code (TCP_HIT, TCP_MISS etc)
+
+%Hs		HTTP状态码	
+HTTP status code (200, 404, 407, etc)
+
+%<st		响应大小
+Total size of reply
+
+%rm            请求方式
+Request method
+
+%ru            请求URL
+Request URL, without the query string
+
+%un             用户名
+Authenticated user name or dash
+
+%Sh            Squid登记码
+Squid hierarchy code (FIRST_UP_PARENT, etc)
+
+%<A           服务器IP
+Server IP address or peer name
+
+%mt           请求MIME类型
+MIME type of the request
+
+%>a           客户端IP地址
+Client source IP address
+
+%>h            请求头信息
+All request header
+
+%{header}<h    请求头信息
+Request headers, as for <..h above
+
+
+码率 hls后面的2000即为
+http://asp.cctv.ccgslb.net/asp/hls/2000/0303000a/3/default/99ee33d953634d0bbff77d752e19facf/55.ts
+
+------------------------------------------------------------------------------------------------------
+
+
+实例(字段对应实例)
+
+[2014-09-16T05:00:01.056,        1,          TCP_MISS/304,		 301,		 GET,		 http://asp.cctv.ccgslb.net/asp/hls/2000/0303000a/3/default/99ee33d953634d0bbff77d752e19facf/55.ts, -,			SOURCEHASH_PARENT/10.64.2.128, video/MP2T,   119.188.138.72,     119.163.235.123,%20222.132.18.163]
+
+%{%Y-%m-%dT%H:%M:%S}tl.%03tu    %6tr         %Ss/%03Hs			 %<st		 %rm		 %ru                                                                                                %un			%Sh/%<A                        %mt           %>a                 %{X-Forwarded-For}>h
+时间                            响应时间      Squid状态码/HTTP状态码     响应大小	 请求方式	 请求URL											    用户名		Squid登记码/服务器IP	     请求MIME类型   客户端IP地址	请求头信息
+
+
+
+------------------------------------------------------------------------------------------------------
+设计名词
+
+uv （IP相同视为一个）
+
+vv  多少条记录 就是多少个vv
+
+码率取值   200  2000  450 850   main
+
+
+
+
+
+
+
+
+

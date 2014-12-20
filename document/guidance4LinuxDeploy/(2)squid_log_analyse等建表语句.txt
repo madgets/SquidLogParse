@@ -1,0 +1,155 @@
+
+--初表
+create table `squid_log_analyse` (
+	`ID` bigint NOT NULL   auto_increment,
+	`visit_time` timestamp,
+	`response_time` int (10),
+	`Squid_status` varchar (40),
+	`http_status` varchar (20) ,
+	
+	`size_reply` int ,
+	`Request_method` varchar (20),
+	`Request_URL` varchar (2000),
+	
+	`code_rate` int (10),
+	`user_name` varchar (100),
+	`Squid_hierarchy_code` varchar (100) ,
+	
+	`Server_IP_address` varchar (100),
+	`MIME_type_request` varchar (100),
+	`Client_IP` varchar (100) ,
+	`All_request_header` varchar (1000) ,
+	 	
+	PRIMARY KEY  (`ID`)
+); 
+
+=====================================================
+
+-- vv 表
+create table `squid_log_vvinfo` (
+	`ID` bigint NOT NULL   auto_increment,
+	`from_time` varchar (20),
+	`to_time` varchar (20),
+	`create_time` varchar (20),
+	`year` varchar (20),
+	`month` varchar (20),
+	`day` varchar (20),
+	`hour` varchar (20) ,
+	`week` int ,
+	`visit_vv` bigint  ,
+	`visit_uv` bigint  ,
+	PRIMARY KEY  (`ID`)
+); 
+
+=====================================================
+
+--状态码
+create table `squid_log_statcode` (
+	`ID` bigint NOT NULL   auto_increment,
+	`from_time` varchar (20),
+	`to_time` varchar (20),
+	`create_time` varchar (20),
+	`year` varchar (20),
+	`month` varchar (20),
+	`day` varchar (20),
+	`hour` varchar (20) ,
+	`week` int ,
+	`statcode` varchar (20) ,
+	`num`  bigint,
+	PRIMARY KEY  (`ID`)
+); 
+
+===========================================
+ 新建表 记录  命中率信息  2014年11月26日10:41:58
+create table `squid_log_hitmiss` (
+	`ID` bigint NOT NULL   auto_increment,
+	`from_time` varchar (20),
+	`to_time` varchar (20),
+	`create_time` varchar (20),
+	`year` varchar (20),
+	`month` varchar (20),
+	`day` varchar (20),
+	`hour` varchar (20) ,
+	`week` int ,
+	`hitmiss_info` varchar (20) ,
+	`num`  bigint,
+	PRIMARY KEY  (`ID`)
+); 
+===========================================
+ 新建表 记录  域名信息  2014年11月26日10:41:58
+create table `squid_log_domain` (
+	`ID` bigint NOT NULL   auto_increment,
+	`from_time` varchar (20),
+	`to_time` varchar (20),
+	`create_time` varchar (20),
+	`year` varchar (20),
+	`month` varchar (20),
+	`day` varchar (20),
+	`hour` varchar (20) ,
+	`week` int ,
+	`domain_name` varchar (20) ,
+	`num`  bigint,
+	PRIMARY KEY  (`ID`)
+); 
+=======================================
+新建squid_log_tsorm3u8   2014年12月2日10:35:56
+create table `squid_log_tsorm3u8` (
+	`ID` bigint NOT NULL   auto_increment,
+	`from_time` varchar (20),
+	`to_time` varchar (20),
+	`create_time` varchar (20),
+	`year` varchar (20),
+	`month` varchar (20),
+	`day` varchar (20),
+	`hour` varchar (20) ,
+	`week` int ,
+	`ts_num` bigint ,
+	`m3u8_num`  bigint,
+	PRIMARY KEY  (`ID`)
+); 
+=======================================
+新建`squid_log_serverrpInfo` 相应时间和size的总大小。   2014年12月2日10:35:56
+
+create table `squid_log_serverrpInfo` (
+	`ID` bigint NOT NULL   auto_increment,
+	`from_time` varchar (20),
+	`to_time` varchar (20),
+	`create_time` varchar (20),
+	`year` varchar (20),
+	`month` varchar (20),
+	`day` varchar (20),
+	`hour` varchar (20) ,
+	`week` int ,
+	`resp_time` bigint ,
+	`resp_szie`  bigint,
+	PRIMARY KEY  (`ID`)
+); 
+
+=======================================
+码率
+create table `squid_log_coderate` (
+	`ID` bigint NOT NULL   auto_increment,
+	`from_time` varchar (20),
+	`to_time` varchar (20),
+	`create_time` varchar (20),
+	`year` varchar (20),
+	`month` varchar (20),
+	`day` varchar (20),
+	`hour` varchar (20) ,
+	`week` int ,
+	`code_rate` int (10) ,
+	`num`  bigint,
+	PRIMARY KEY  (`ID`)
+); 
+
+
+
+
+
+
+
+
+
+
+
+
